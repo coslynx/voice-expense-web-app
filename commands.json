@@ -1,0 +1,54 @@
+{
+  "expenseCommands": {
+    "add": [
+      {
+        "id": "pattern_spent_on",
+        "keywords": ["spent", "paid", "used", "cost"],
+        "amount_regex": [
+          "[$£€]?\\s*(\\d+(?:[.,]\\d{1,2})?)",
+          "(\\d+(?:[.,]\\d{1,2})?)\\s*(dollars?|pounds?|euros?|usd|dollar|pound|euro|bucks)"
+        ],
+        "description_delimiters": ["on", "for"],
+        "structure_example": "{keyword} {amount} {delimiter} {description}",
+        "test_phrases": [
+          "Spent $10.50 on coffee",
+          "Paid 20 euros for taxi",
+          "Used 5 pounds on snacks",
+          "Cost $15 for lunch"
+        ]
+      },
+      {
+        "id": "pattern_add_expense",
+        "keywords": ["add expense", "log expense", "expense of", "record", "add"],
+        "amount_regex": [
+          "[$£€]?\\s*(\\d+(?:[.,]\\d{1,2})?)",
+          "(\\d+(?:[.,]\\d{1,2})?)\\s*(dollars?|pounds?|euros?|usd|dollar|pound|euro|bucks)"
+        ],
+        "description_delimiters": ["for", "on", "was", "is"],
+        "structure_example": "{keyword} {amount} {delimiter} {description}",
+        "test_phrases": [
+          "Add expense 15 dollars for lunch",
+          "Log expense £5 on train ticket",
+          "Expense of 50 was groceries",
+          "Record $100 for rent",
+          "Add 12 euro taxi fare"
+        ]
+      },
+       {
+        "id": "pattern_implicit_amount_first",
+        "keywords": [],
+        "amount_regex": [
+           "[$£€]\\s*(\\d+(?:[.,]\\d{1,2})?)",
+           "(\\d+(?:[.,]\\d{1,2})?)\\s*(dollars?|pounds?|euros?|usd|dollar|pound|euro)"
+        ],
+        "description_delimiters": [],
+        "structure_example": "{amount} {description}",
+        "test_phrases": [
+            "$5 coffee",
+            "12 pounds lunch",
+            "€8.50 sandwich"
+        ]
+       }
+    ]
+  }
+}
