@@ -1,0 +1,61 @@
+/*
+ * src/index.css
+ *
+ * Global CSS entry point for the Voice Expense Tracker application.
+ * Provides essential baseline styles and CSS resets that work harmoniously
+ * with the Material UI library.
+ *
+ * Imported directly in `src/main.jsx`.
+ */
+
+/*
+ * Apply a natural box layout model to all elements,
+ * ensuring padding and border are included in the element's total width and height.
+ * This is a standard practice and aligns with Material UI's expectations.
+ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*
+ * Remove default browser margins and padding from html and body
+ * to establish a consistent baseline.
+ */
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Allow html and body to occupy the full viewport height.
+ * This is useful for full-height layouts and ensures the main application
+ * container (#root) can also extend to full height if needed.
+ */
+html,
+body {
+  height: 100%;
+}
+
+/*
+ * Define a base font stack for the body.
+ * This uses Material UI's default font ('Roboto') as the primary choice,
+ * with common sans-serif fallbacks.
+ * Material UI's CssBaseline component typically handles this, but setting
+ * it here provides a minimal fallback if CssBaseline is not used or loaded late.
+ */
+body {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  /* Additional base body styles could go here if necessary,
+     but keep minimal to avoid conflicts with MUI. */
+}
+
+/*
+ * Ensure the React root container can also occupy full height
+ * if its parents (html, body) are set to height: 100%.
+ */
+#root {
+    height: 100%;
+}
